@@ -24,9 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
   password1.addEventListener("input", passwordValidation);
   password2.addEventListener("input", passwordValidation);
   
-  const checkbox = document.getElementById("terminos");
-  if (checkbox.checked) {
-  } else {
-  }
+  // const checkbox = document.getElementById("terminos");
+  // if (checkbox.checked) {
+  // } else {
+  // }
   
 });
