@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const password1 = document.getElementById("password1");
   const password2 = document.getElementById("password2");
   const checkbox = document.getElementById("terminos");
-  const feedbackText = document.getElementById("termsFeedbackText");
+  const termsButton = document.getElementById("termsFeedbackText");
+  const validationText = document.getElementById("termsValidation");
 
   forms.forEach(function (form) {
     form.addEventListener("submit", function (event) {
@@ -14,7 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
       form.classList.add("was-validated");
       if (!checkbox.checked) {
         checkbox.classList.add("is-invalid");
-        feedbackText.classList.add("text-danger");
+        termsButton.classList.add("text-danger");
+        validationText.style.display = "block";
       }
     });
   });
@@ -34,11 +36,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (checkbox.checked) {
       checkbox.classList.remove("is-invalid");
       checkbox.classList.add("is-valid");
-      feedbackText.classList.remove("text-danger");
+      termsButton.classList.remove("text-danger");
+      validationText.style.display = "none";
     } else {
       checkbox.classList.remove("is-valid");
       checkbox.classList.add("is-invalid");
-      feedbackText.classList.add("text-danger");
+      termsButton.classList.add("text-danger");
+      validationText.style.display = "block";
     }
   }
 
