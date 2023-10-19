@@ -12,17 +12,21 @@ document.addEventListener("DOMContentLoaded", function () {
       form.classList.add("was-validated");
     });
   });
-  
-  password2.addEventListener("input", ()=> {
+
+  function passwordValidation() {
     if (password1.value === password2.value) {
       password2.setCustomValidity("");
     } else {
       password2.setCustomValidity('Debe ser igual a "contraseña"');
     }
-  })
+  }
+  
+  password1.addEventListener("input", passwordValidation);
+  password2.addEventListener("input", passwordValidation);
   
   const checkbox = document.getElementById("terminos");
   if (checkbox.checked) {
   } else {
   }
+  
 });
