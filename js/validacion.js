@@ -11,13 +11,22 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!form.checkValidity()) {
         event.preventDefault();
         event.stopPropagation();
-      }
+      } 
       form.classList.add("was-validated");
       if (!checkbox.checked) {
         checkbox.classList.add("is-invalid");
         termsButton.classList.add("text-danger");
         validationText.style.display = "block";
       }
+
+      if (form.checkValidity() && checkbox.checked) {
+        form.reset();
+        updateFeedbackClasses(); // Llamar a la función para quitar las clases de validación
+      }
+    });
+
+    form.addEventListener("reset", function () {
+      form.classList.remove("was-validated"); // quita las clases de validación al restablecer el formulario
     });
   });
 
