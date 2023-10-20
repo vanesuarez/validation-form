@@ -13,23 +13,29 @@ document.addEventListener("DOMContentLoaded", function () {
         event.stopPropagation();
       } 
       form.classList.add("was-validated");
+
+      // Validaciones del checkbox al enviar el formulario
       if (!checkbox.checked) {
         checkbox.classList.add("is-invalid");
         termsButton.classList.add("text-danger");
         validationText.style.display = "block";
       }
 
+      // Validaciones del checkbox junto con el resto del formulario para resetearlo
       if (form.checkValidity() && checkbox.checked) {
         form.reset();
         updateFeedbackClasses(); // Llamar a la función para quitar las clases de validación
       }
     });
 
+    // Evento para darle reset al formulario
     form.addEventListener("reset", function () {
       form.classList.remove("was-validated"); // quita las clases de validación al restablecer el formulario
     });
+
   });
 
+  // Funcion para las contraseñas
   function passwordValidation() {
     if (password1.value === password2.value) {
       password2.setCustomValidity("");
@@ -41,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
   password1.addEventListener("input", passwordValidation);
   password2.addEventListener("input", passwordValidation);
 
+    // Funcion para el modal
   function updateFeedbackClasses() {
     if (checkbox.checked) {
       checkbox.classList.remove("is-invalid");
